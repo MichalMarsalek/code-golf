@@ -1,5 +1,5 @@
-import { EditorView }   from './_codemirror';
-import diffTable        from './_diff';
+import { EditorView } from './_codemirror';
+import diffTable from './_diff';
 import { $, $$, comma } from './_util';
 import {
     init, langs, getLang, hole, getAutoSaveKey, setSolution, getSolution,
@@ -13,7 +13,7 @@ const editor = new EditorView({
         const result = editor.update([tr]) as unknown;
 
         const code = tr.state.doc.toString();
-        const scorings: {total: {byte?: number, char?: number}, selection?: {byte?: number, char?: number}} = getScorings(tr, editor);
+        const scorings: { total: { byte?: number, char?: number }, selection?: { byte?: number, char?: number } } = getScorings(tr, editor);
         const scoringKeys = ['byte', 'char'] as const;
 
         function formatScore(scoring: any) {
@@ -56,6 +56,8 @@ $('#restoreLink').onclick = e => {
     setCode(getCurrentSolutionCode(), editor);
     e.preventDefault();
 };
+
+$('#clearBtn').onclick = () => setCode("", editor);
 
 // Wire submit to clicking a button and a keyboard shortcut.
 $('#runBtn').onclick = () => submit(editor, updateReadonlyPanels);

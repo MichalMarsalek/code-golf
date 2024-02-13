@@ -220,6 +220,8 @@ layout.registerComponentFactoryFunction('code', async container => {
         setCode(getCurrentSolutionCode(), editor);
     };
 
+    $('#clearBtn').onclick = () => setCode("", editor);
+
     // Wire submit to clicking a button and a keyboard shortcut.
     $('#runBtn').onclick = () => submit(editor, updateReadonlyPanels);
 

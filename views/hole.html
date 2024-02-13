@@ -117,6 +117,9 @@
     </section>
     {{ template "hole-info" . }}
     <div id=run>
+    <button class="btn red" id=clearBtn>
+        {{ svg "trash" }} Clear
+    </button>
     {{ if .Golfer }}
         <button class="btn hide red" id=deleteBtn>
             {{ svg "trash" }} Delete
